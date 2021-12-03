@@ -59,17 +59,21 @@ class ClinBoards
                   headings: %w[ID Title Members Labels Due_Date Checklist])
 
 
-    #   action, id = menu(["create", "update ID", "delete ID", "back"])
+      action, id = menu2("List options: create-list | update-list LISTNAME |delete-list ID\nCard options: create-card | checklist ID | update-car ID | delete-card\n back")
 
-    #   case action
-    #   when "create" then create_song(playlist)
-    #   when "update" then update_song(id, playlist)
-    #   when "delete" then delete_song(id, playlist)
-    #   when "back" then next
-    #   else
-    #     puts "Invalid action"
-    #   end
-    # end
+      case action
+      when "create" then create_song(playlist)
+      when "update" then update_song(id, playlist)
+      when "delete" then delete_song(id, playlist)
+      when "back" then next
+      when "create" then create_song(playlist)
+      when "update" then update_song(id, playlist)
+      when "delete" then delete_song(id, playlist)
+      when "back" then next
+      else
+        puts "Invalid action"
+      end
+    end
 
   end
 
@@ -110,6 +114,14 @@ class ClinBoards
 
   def menu(options)
     puts options.join(" | ")
+    puts "exit"
+    print "> "
+    action, id = gets.chomp.split
+    [action, id.to_i]
+  end
+
+  def menu2(options)
+    puts options
     puts "exit"
     print "> "
     action, id = gets.chomp.split
