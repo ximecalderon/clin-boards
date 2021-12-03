@@ -2,14 +2,21 @@ require "json"
 require_relative "board"
 
 class Store
-  attr_reader :boards
+  attr_reader :boards 
 
   def initialize(filename)
     @filename = filename
     @boards = load_board
   end
 
-  
+  def add_board(new_board)
+    @boards.push(new_board)
+    save
+  end
+
+  def find_board(id)
+    @boards.find { |pl| pl.id == id }
+  end
 
   private
 
@@ -18,8 +25,7 @@ class Store
     data.map {|board_data| Board.new(board_data)}
   end
 
-  def load_list
-  end
-  def load_card
+  def save
+    File.write(@filename, @boards.to_json)
   end
 end

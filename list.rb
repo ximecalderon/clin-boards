@@ -1,28 +1,31 @@
-# require_relative "Board"
+require_relative "card"
 
 class List
+    attr_reader :cards, :name
     def initialize(id:, name:, cards:)
         @id = id
         @name = name
-        @cards = cards # [Cards1, Cards2]
+        # pp @cards = cards
+        @cards = cards.map{|x| Card.new(x)}
     end
 
-    # to_json
-    # details [@id, @name, ...]
+ 
 
 
+    def details
+        
+
+
+    end
   
   
-  
+    def to_json(_generator)
+        { id: @id, name: @name, cards: @cards }.to_json
+    end
   
     
-  private
+  # private
   
-    # def load_boar
-    #     data = JSON.parse(File.read(@filename))
-    #     data.map {|object| Board.new(object)}
-    # end
-  
-  
+ 
   
   end
