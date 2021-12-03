@@ -1,13 +1,21 @@
-class ClinBoards
-  def initialize
-    # Complete this
+# require_relative "Board"
+
+class List
+
+  def initialize(id:, name:, cards:)
+      @id = id
+      @name = name
+      @cards = cards
   end
 
-  def start
-    # Complete this
-  end
+  
+private
+
+  # def load_boar
+  #     data = JSON.parse(File.read(@filename))
+  #     data.map {|object| Board.new(object)}
+  # end
+
+
+
 end
-
-# get the command-line arguments if neccesary
-app = ClinBoards.new
-app.start
