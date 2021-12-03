@@ -11,49 +11,62 @@
                     {
                         "id": 1,
                         "title": "Check terminal-table gem",
+                        "due_date": "2020-11-19",
+                        "labels": [
+                            "investigate"
+                        ],
+                        "checklist": [
+                            {
+                                "title": "Add gem to gemfile",
+                                "completed": true
+                            },
+                            {
+                                "title": "Make an example and share with the team",
+                                "completed": false
+                            },
+                            {
+                                "title": "Ask if this feature is mandatory",
+                                "completed": true
+                            }
+                        ],
                         "members": [
                             "Diego",
                             "Deyvi",
                             "Wences"
-                        ],
-                        "labels": [
-                            "investigate"
-                        ],
-                        "due_date": "2020-11-19",
-                        "checklist": [
-                            {
-                                "title": "Add gem to gemfile",
-                                "completed": true
-                            },
-                            {
-                                "title": "Make an example and share with the team",
-                                "completed": false
-                            },
-                            {
-                                "title": "Ask if this feature is mandatory",
-                                "completed": true
-                            }
                         ]
                     },
                     {
                         "id": 2,
                         "title": "Create Manager class",
-                        "members": [],
+                        "due_date": "2020-11-20",
                         "labels": [
                             "Coding"
                         ],
-                        "due_date": "2020-11-20",
-                        "checklist": []
+                        "checklist": [],
+                        "members": []
                     },
                     {
                         "id": 3,
                         "title": "Create JSON store",
-                        "members": [],
+                        "due_date": "2020-11-20",
                         "labels": [
                             "Coding"
                         ],
-                        "due_date": "2020-11-20",
-                        "checklist": []
+                        "checklist": [],
+                        "members": []
+                    },
+                    {
+                        "id": 9,
+                        "title": "Esto es una prueba",
+                        "due_date": "2021-12-12",
+                        "labels": [
+                            "programming"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "katy,",
+                            "ruben"
+                        ]
                     }
                 ]
             },
@@ -64,14 +77,11 @@
                     {
                         "id": 4,
                         "title": "Create List class",
-                        "members": [
-                            "Deyvi"
-                        ],
+                        "due_date": "2020-11-19",
                         "labels": [
                             "coding",
                             "challenge"
                         ],
-                        "due_date": "2020-11-19",
                         "checklist": [
                             {
                                 "title": "Define initialize method",
@@ -85,18 +95,18 @@
                                 "title": "Share with the team for feedback",
                                 "completed": false
                             }
+                        ],
+                        "members": [
+                            "Deyvi"
                         ]
                     },
                     {
                         "id": 5,
                         "title": "Create Card class",
-                        "members": [
-                            "Wences"
-                        ],
+                        "due_date": "2020-11-19",
                         "labels": [
                             "coding"
                         ],
-                        "due_date": "2020-11-19",
                         "checklist": [
                             {
                                 "title": "Define initialize method",
@@ -114,22 +124,25 @@
                                 "title": "Share with the team for feedback",
                                 "completed": false
                             }
+                        ],
+                        "members": [
+                            "Wences"
                         ]
                     },
                     {
                         "id": 9,
                         "title": "Schedule standup meeting",
-                        "members": [
-                            "Diego",
-                            "Wences",
-                            "Deyvi"
-                        ],
+                        "due_date": "2020-11-20",
                         "labels": [
                             "meetigns",
                             "important"
                         ],
-                        "due_date": "2020-11-20",
-                        "checklist": []
+                        "checklist": [],
+                        "members": [
+                            "Diego",
+                            "Wences",
+                            "Deyvi"
+                        ]
                     }
                 ]
             },
@@ -140,14 +153,11 @@
                     {
                         "id": 6,
                         "title": "Create Board class",
-                        "members": [
-                            "Diego"
-                        ],
+                        "due_date": "2020-11-19",
                         "labels": [
                             "coding",
                             "challenge"
                         ],
-                        "due_date": "2020-11-19",
                         "checklist": [
                             {
                                 "title": "Define initialize method",
@@ -161,6 +171,9 @@
                                 "title": "Share with the team for feedback",
                                 "completed": true
                             }
+                        ],
+                        "members": [
+                            "Diego"
                         ]
                     }
                 ]
@@ -172,243 +185,19 @@
                     {
                         "id": 8,
                         "title": "Divide tasks",
+                        "due_date": "2020-11-19",
+                        "labels": [
+                            "prep"
+                        ],
+                        "checklist": [],
                         "members": [
                             "Diego",
                             "Wences",
                             "Deyvi"
-                        ],
-                        "labels": [
-                            "prep"
-                        ],
-                        "due_date": "2020-11-19",
-                        "checklist": []
+                        ]
                     }
                 ]
             }
         ]
-    },
-    {
-        "id": 2,
-        "name": "test",
-        "description": "Task management for the last extended",
-        "lists": []
-    },
-    {
-        "id": 3,
-        "name": "test 2",
-        "description": "descriptio test 2",
-        "lists": []
-    },
-    {
-        "id": 4,
-        "name": "test 3",
-        "description": "description test 3",
-        "lists": []
-    },
-    {
-        "id": 5,
-        "name": "Extended - CLIn Boards",
-        "description": "Task management for the last extended",
-        "lists": [
-            {
-                "id": 1,
-                "name": "Todo",
-                "cards": [
-                    {
-                        "id": 1,
-                        "title": "Check terminal-table gem",
-                        "members": [
-                            "Ruben",
-                            "Katy",
-                            "Wences"
-                        ],
-                        "labels": [
-                            "Codeable"
-                        ],
-                        "due_date": "2020-11-19",
-                        "checklist": [
-                            {
-                                "title": "Add gem to gemfile",
-                                "completed": true
-                            },
-                            {
-                                "title": "Make an example and share with the team",
-                                "completed": false
-                            },
-                            {
-                                "title": "Ask if this feature is mandatory",
-                                "completed": true
-                            }
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "title": "Create Manager class",
-                        "members": [],
-                        "labels": [
-                            "Coding"
-                        ],
-                        "due_date": "2020-11-20",
-                        "checklist": []
-                    },
-                    {
-                        "id": 3,
-                        "title": "Create JSON store",
-                        "members": [],
-                        "labels": [
-                            "Coding"
-                        ],
-                        "due_date": "2020-11-20",
-                        "checklist": []
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "name": "In Progress",
-                "cards": [
-                    {
-                        "id": 4,
-                        "title": "Create List class",
-                        "members": [
-                            "Deyvi"
-                        ],
-                        "labels": [
-                            "coding",
-                            "challenge"
-                        ],
-                        "due_date": "2020-11-19",
-                        "checklist": [
-                            {
-                                "title": "Define initialize method",
-                                "completed": true
-                            },
-                            {
-                                "title": "Add public methods",
-                                "completed": true
-                            },
-                            {
-                                "title": "Share with the team for feedback",
-                                "completed": false
-                            }
-                        ]
-                    },
-                    {
-                        "id": 5,
-                        "title": "Create Card class",
-                        "members": [
-                            "Wences"
-                        ],
-                        "labels": [
-                            "coding"
-                        ],
-                        "due_date": "2020-11-19",
-                        "checklist": [
-                            {
-                                "title": "Define initialize method",
-                                "completed": true
-                            },
-                            {
-                                "title": "Add public methods",
-                                "completed": false
-                            },
-                            {
-                                "title": "Check dependency with list class",
-                                "completed": false
-                            },
-                            {
-                                "title": "Share with the team for feedback",
-                                "completed": false
-                            }
-                        ]
-                    },
-                    {
-                        "id": 9,
-                        "title": "Schedule standup meeting",
-                        "members": [
-                            "Diego",
-                            "Wences",
-                            "Deyvi"
-                        ],
-                        "labels": [
-                            "meetigns",
-                            "important"
-                        ],
-                        "due_date": "2020-11-20",
-                        "checklist": []
-                    }
-                ]
-            },
-            {
-                "id": 3,
-                "name": "Code Review",
-                "cards": [
-                    {
-                        "id": 6,
-                        "title": "Create Board class",
-                        "members": [
-                            "Diego"
-                        ],
-                        "labels": [
-                            "coding",
-                            "challenge"
-                        ],
-                        "due_date": "2020-11-19",
-                        "checklist": [
-                            {
-                                "title": "Define initialize method",
-                                "completed": true
-                            },
-                            {
-                                "title": "Add public methods",
-                                "completed": true
-                            },
-                            {
-                                "title": "Share with the team for feedback",
-                                "completed": true
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": 4,
-                "name": "Done",
-                "cards": [
-                    {
-                        "id": 8,
-                        "title": "Divide tasks",
-                        "members": [
-                            "Diego",
-                            "Wences",
-                            "Deyvi"
-                        ],
-                        "labels": [
-                            "prep"
-                        ],
-                        "due_date": "2020-11-19",
-                        "checklist": []
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": 6,
-        "name": "test",
-        "description": "test",
-        "lists": []
-    },
-    {
-        "id": 7,
-        "name": "test 2",
-        "description": "descriptio test 2",
-        "lists": []
-    },
-    {
-        "id": 8,
-        "name": "test 3",
-        "description": "description test 3",
-        "lists": []
     }
 ]

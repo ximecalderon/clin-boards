@@ -35,12 +35,12 @@ class ClinBoards
   end
 
   def show_list(id)
-    board = @store.find_board(id)
-    item = board.lists.map{|x| x.name}
-    todo = board.lists.find{|x| x.name == "Todo"}
-    in_progress = board.lists.find{|x| x.name == "In Progress"}
-    code_review = board.lists.find{|x| x.name == "Code Review"}
-    done = board.lists.find{|x| x.name == "Done"}
+    @board = @store.find_board(id)
+    item = @board.lists.map{|x| x.name}
+    todo = @board.lists.find{|x| x.name == "Todo"}
+    in_progress = @board.lists.find{|x| x.name == "In Progress"}
+    code_review = @board.lists.find{|x| x.name == "Code Review"}
+    done = @board.lists.find{|x| x.name == "Done"}
 
       print_table(list: todo.cards,
                   title: "Todo",
@@ -59,24 +59,19 @@ class ClinBoards
                   headings: %w[ID Title Members Labels Due_Date Checklist])
 
 
-      action, id = menu2("List options: create-list | update-list LISTNAME |delete-list ID\nCard options: create-card | checklist ID | update-car ID | delete-card\n back")
+      action, listname = menu2("List options: create-list | update-list LISTNAME |delete-list ID\nCard options: create card | checklist ID | update-car ID | delete-card\n back")
 
       case action
-      when "create" then create_song(playlist)
-      when "update" then update_song(id, playlist)
-      when "delete" then delete_song(id, playlist)
-      when "back" then next
-      when "create" then create_song(playlist)
-      when "update" then update_song(id, playlist)
-      when "delete" then delete_song(id, playlist)
-      when "back" then next
-      else
-        puts "Invalid action"
+      when "create-card" then create_card
+      # when "update-lits" then update_song(id, playlist)
+      # when "delete" then delete_song(id, playlist)
+      # when "create" then create_song(playlist)
+      # when "update" then update_song(id, playlist)
+      # when "delete" then delete_song(id, playlist)
+      else puts "Invalid action"
       end
-    end
 
   end
-
 
   def board_form
     print "Name: "
@@ -86,10 +81,30 @@ class ClinBoards
     { name: name, description: description }
   end
 
-  def create_board
-    board_data = board_form
-    new_board = Board.new(board_data)
-    @store.add_board(new_board)
+  def create_card
+    print "Select a list:"
+    puts "Todo | In Progress | Code Review | Done"
+    select_list = gets.chomp
+    container = @board.lists.find{|x| x.name == "#{select_list}"}.cards
+    new_card = Card.new(get_data_card)
+    container.push(new_card)
+    @store.save
+  end
+
+  def checklist_id(id)
+
+  end
+
+  def get_data_card
+    print "Title:" 
+    title = gets.chomp
+    print "Members:"
+    members = gets.chomp
+    print "Labels:"
+    labels = gets.chomp
+    print "Due Date:"
+    due_date = gets.chomp
+    {id: nil, title: title, labels: [labels], due_date: due_date, checklist: [], members: members.split}
   end
 
   def update

@@ -18,7 +18,7 @@ class Store
     @boards.find { |pl| pl.id == id }
   end
 
-  private
+  # private
 
   def load_board
     data = JSON.parse(File.read(@filename), { symbolize_names: true })
