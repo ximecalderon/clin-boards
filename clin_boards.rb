@@ -1,21 +1,56 @@
-# require_relative "Board"
+require "json"
+require_relative "./board.rb"
+require "terminal-table"
+require_relative "store"
 
-class List
+class ClinBoards
 
-  def initialize(id:, name:, cards:)
-      @id = id
-      @name = name
-      @cards = cards
+  def initialize
+    @store = Store.new("store.json")
   end
 
-  
-private
+  def start
+    puts "####################################"
+    puts "#      Welcome to CLIn Boards      #"
+    puts "####################################"
 
-  # def load_boar
-  #     data = JSON.parse(File.read(@filename))
-  #     data.map {|object| Board.new(object)}
-  # end
+    action = ""
+    until action == "exit"
+      print_table(list: @store.boards,
+                  title: "CLIn Boards",
+                  headings: ["ID", "Name", "Description", "List(#cards)"])
 
+      action_id = menu(["Board options: create", "show ID", "update ID", "delete ID"])
+      
+      case action
+      when "create" then puts "create action"
+      when "update" then puts "update action"
+      when "show" then puts "show action"
+      when "delete" then puts "delete action"
+      when "exit" then puts "Goodbye"
+      else
+        puts "Invalid action"
+      end
+    end
+  end
 
+  def print_table(list:, title:, headings:)
+    table = Terminal::Table.new
+    table.title = title
+    table.headings = headings
+    table.rows = list.map(&:details)
+    puts table
+  end
+
+  def menu(options)
+    puts options.join(" | ")
+    puts "exit"
+    print "> "
+    action, id = gets.chomp.split
+    [action, id.to_i]
+  end
 
 end
+
+app = ClinBoards.new
+app.start

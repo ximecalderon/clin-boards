@@ -2,23 +2,31 @@ require "json"
 require_relative "./list.rb"
 
 class Board
-    attr_reader :lists
-    def initialize(id:, name:, description:, lists:)
-        @id = id
+    attr_reader :id, :name, :lists
+
+    @@id_count = 0
+    def initialize(name:, description:, id: nil, lists: [])
+        @id = id || @@id_count.next
         @name = name
         @description = description
-        @lists = lists.map {|list| List.new(list)}
+        @lists = [] #[List1, List2]
 
     end
 
-    def data
-      pp  todo = @lists.select{|list| list.name == "Todo"}.length
-      pp  in_progress = @lists.select{|list| list.name == "In progress"}.length
-      pp  code_review = @lists.select{|list| list.name == "Code Review"}.length
-      pp  done = @lists.select{|list| list.name == "Done"}.length
+    def details
+        [@id, @name, @description, "List"]
+    end
+    
+    # def data
+    #   todo = @lists.select{|list| list.name == "Todo"}.length
+    #   in_progress = @lists.select{|list| list.name == "In progress"}.length
+    #   code_review = @lists.select{|list| list.name == "Code Review"}.length
+    #   done = @lists.select{|list| list.name == "Done"}.length
         
-     [@id, @name, @description, "Todo(#{todo}), In progress(#{in_progress}), Code Review(#{code_review}), Done(#{done})" ]
-    end
+    #  @holi = [@id, @name, @description, "Todo(#{todo}), In progress(#{in_progress}), Code Review(#{code_review}), Done(#{done})" ]
+    # end
+
+
 
 end
 

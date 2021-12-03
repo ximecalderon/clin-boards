@@ -1,56 +1,28 @@
-require "json"
-require_relative "./board.rb"
+# require_relative "Board"
 
-class ClinBoards
+class List
+    def initialize(id:, name:, cards:)
+        @id = id
+        @name = name
+        @cards = cards # [Cards1, Cards2]
+    end
 
-  def initialize(filename)
-    @filename = filename
+    # to_json
+    # details [@id, @name, ...]
+
+
+  
+  
+  
+  
+    
+  private
+  
+    # def load_boar
+    #     data = JSON.parse(File.read(@filename))
+    #     data.map {|object| Board.new(object)}
+    # end
+  
+  
+  
   end
-
-  def start
-    store = JSON.parse(File.read(@filename), { symbolize_names: true })
-    @board = store.map{|data| Board.new(data)}
-    # pp lists
-    # pp board
-    pp board.data
-    
-    
-
-
-    puts "#{'#'*40}"
-    puts "#      Welcome to CLIn Boards      # "
-    puts "#{'#'*40}"
-
-    # print_table(list: ,
-    #   title: "Music CLImax",
-    #   headings: ["ID", "List", "Description", "#Songs"])
-
-    
-# #case (opcione)
-
-#     #create(name, description  ) 
-    
-#     #show(id)
-
-
-#     #update(id)
-
-
-#     #delete(id)
-
-  end
-#   end
-
-# #def create
-
-# #def show
-# #.
-# #.
-# #.
-
-
-end
-# sss
-# get the command-line arguments if neccesary
-app = ClinBoards.new("store.json")
-app.start
