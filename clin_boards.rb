@@ -16,10 +16,7 @@ class ClinBoards
 
     action = ""
     until action == "exit"
-      print_table(list: @store.boards,
-                  title: "CLIn Boards",
-                  headings: ["ID", "Name", "Description", "List(#cards)"])
-
+      print_table(list: @store.boards, title: "CLIn Boards", headings: ["ID", "Name", "Description", "List(#cards)"])
       action, id = menu(["Board options: create", "show ID", "update ID", "delete ID"])
       
       case action
@@ -42,34 +39,22 @@ class ClinBoards
     code_review = @board.lists.find{|x| x.name == "Code Review"}
     done = @board.lists.find{|x| x.name == "Done"}
 
-      print_table(list: todo.cards,
-                  title: "Todo",
-                  headings: %w[ID Title Members Labels Due_Date Checklist])
-      
-                  print_table(list: in_progress.cards,
-                  title: "In Progres",
-                  headings: %w[ID Title Members Labels Due_Date Checklist])
-      
-                  print_table(list: code_review.cards,
-                  title: "Code  Review",
-                  headings: %w[ID Title Members Labels Due_Date Checklist])
-                  
-                  print_table(list: done.cards,
-                  title: "Done",
-                  headings: %w[ID Title Members Labels Due_Date Checklist])
+    print_table(list: todo.cards, title: "Todo", headings: %w[ID Title Members Labels Due_Date Checklist])
+    print_table(list: in_progress.cards, title: "In Progres", headings: %w[ID Title Members Labels Due_Date Checklist])
+    print_table(list: code_review.cards, title: "Code  Review", headings: %w[ID Title Members Labels Due_Date Checklist])
+    print_table(list: done.cards, title: "Done", headings: %w[ID Title Members Labels Due_Date Checklist])
 
+    action, id = menu2("List options: create-list | update-list LISTNAME |delete-list ID\nCard options: create card | checklist ID | update-car ID | delete-card\n back")
 
-      action, listname = menu2("List options: create-list | update-list LISTNAME |delete-list ID\nCard options: create card | checklist ID | update-car ID | delete-card\n back")
-
-      case action
-      when "create-card" then create_card
-      # when "update-lits" then update_song(id, playlist)
-      # when "delete" then delete_song(id, playlist)
-      # when "create" then create_song(playlist)
-      # when "update" then update_song(id, playlist)
-      # when "delete" then delete_song(id, playlist)
-      else puts "Invalid action"
-      end
+    case action
+    when "create-card" then create_card
+    when "checklist-id" then checklist_id(id)
+    # when "delete" then delete_song(id, playlist)
+    # when "create" then create_song(playlist)
+    # when "update" then update_song(id, playlist)
+    # when "delete" then delete_song(id, playlist)
+    else puts "Invalid action"
+    end
 
   end
 
@@ -91,9 +76,33 @@ class ClinBoards
     @store.save
   end
 
-  def checklist_id(id)
+  def checklist_id(id_card)
+    @container_card = @board.lists.map{|x| (x.cards).find{|y| y.id == id_card}}.reject(&:nil?)[0]
+    puts "#{'-'*40}"
+    puts "nombre de qué?"
+    puts @container_card.title
+    @container_card.checklist.map.with_index do |x, i|
+      x[:completed] ? (a = "x") : (a = " ")
+      puts "[#{a}] #{i+1}. #{x[:title]}"
+    end
+    puts "#{'-'*40}"
 
+    accion = ""
+    until accion == "exit"
+    accion, index = menu(["Board options: add", "toggle INDEX", "delete INDEX"])
+    #   case accion
+    #   when "add" when add_checklist
+    #   when "togle" when toggle_checklist(index)
+    #   when "delete" when delete_checklist(index)
+    #   else puts "accion invalid"
+    #   end
+    end
   end
+
+  # def add_checklist
+  #  print "Title:"
+  #  title 
+  # end
 
   def get_data_card
     print "Title:" 
@@ -105,17 +114,6 @@ class ClinBoards
     print "Due Date:"
     due_date = gets.chomp
     {id: nil, title: title, labels: [labels], due_date: due_date, checklist: [], members: members.split}
-  end
-
-  def update
-
-  end
-
-  def show
-
-  end
-
-  def delete
   end
 
   def print_table(list:, title:, headings:)
