@@ -3,7 +3,7 @@
 class Card
 
     @@id_count_ = 0
-    attr_reader :title, :checklist, :id
+    attr_reader :id, :title, :labels, :due_date, :checklist, :members  
     def initialize (id:, title:,  labels:[], due_date:, checklist:[{}], members:[])
       id.nil? ? @id = @@id_count_.next : @id = id 
       @@id_count_ = @id

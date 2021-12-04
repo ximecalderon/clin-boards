@@ -1,3 +1,4 @@
+require "json" # no estaba
 require_relative "card"
 
 class List
@@ -7,8 +8,6 @@ class List
     id.nil? ? @id = @@id_count_.next : @id = id 
     @@id_count_ = @id
     @name = name
-    # pp @cards = cards
-    # cards.empty? ? @cards = Cards.new({}) : @cards = cards.map{|x| Card.new(x)}
     @cards = cards.map{|x| Card.new(x)}
   end
 
@@ -17,7 +16,6 @@ class List
   end
 
   def to_json(_generator)
-      { id: @id, name: @name, cards: @cards }.to_json
+    { id: @id, name: @name, cards: @cards }.to_json
   end
-  
-  end
+end

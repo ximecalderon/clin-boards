@@ -8,7 +8,7 @@ class ClinBoards
   def initialize
     @store = Store.new("store.json")
   end
-  
+
   def start
     puts "####################################"
     puts "#      Welcome to CLIn Boards      #"
@@ -18,7 +18,7 @@ class ClinBoards
     until action == "exit"
       print_table(list: @store.boards, title: "CLIn Boards", headings: ["ID", "Name", "Description", "List(#cards)"])
       action, id = menu(["Board options: create", "show ID", "update ID", "delete ID"], nil, "exit")
-      
+
       case action
       when "create" then puts create_board
       when "update" then puts "update action"
@@ -31,44 +31,58 @@ class ClinBoards
     end
   end
 
+  private
+
   def show_list(id)
-    @object_board_id = @store.find_board(id)
-    # todo = @object_board_id.lists.find{|x| x.name == "Todo"}
-    # in_progress = @object_board_id.lists.find{|x| x.name == "In Progress"}
-    # code_review = @object_board_id.lists.find{|x| x.name == "Code Review"}
-    # done = @object_board_id.lists.find{|x| x.name == "Done"}
-    # #--------------------------print table list---------------------------------------
-    # print_table(list: todo.cards, title: "Todo", headings: %w[ID Title Members Labels Due_Date Checklist])
-    # print_table(list: in_progress.cards, title: "In Progres", headings: %w[ID Title Members Labels Due_Date Checklist])
-    # print_table(list: code_review.cards, title: "Code  Review", headings: %w[ID Title Members Labels Due_Date Checklist])
-    # print_table(list: done.cards, title: "Done", headings: %w[ID Title Members Labels Due_Date Checklist])
-    #--------------------------------------------------------------------------------
-    board = @store.find_board(id)
-      board.lists.each do |list|
+    @board = @store.find_board(id)
+
+    action = ""
+    until action == "back"
+      @board.lists.each do |list|
         print_table(list: list.cards,
                     title: list.name,
                     headings: ["ID", "Title", "Members", "Labels", "Due Date", "Checklist"])
       end
-    #--------------------------print menu option -----------------------------------
-    action = ""
-    until action == "back"
-      option_to_list = ["List options: create-list", "update-list LISTNAME", "delete-list ID"]
-      option_to_card = ["Card options: create-card", "checklist ID", "update-car ID", "delete-card"]
-      action, id = menu( option_to_list, option_to_card, "back" )
+      action, id = menu(["List options: create-list", "update-list LISTNAME", "delete-list LISTNAME"],
+                        ["Card options: create-card", "checklist ID", "update-card ID", "delete-card ID"],
+                        "back")
 
       case action
+      when "create-list" then create_list(@board)
+      when "update-list" then update_list(id, @board)
+      when "delete-list" then delete_list(id, @board)  
       when "create-card" then create_card
       when "checklist" then checklist_id(id)
       when "delete-card" then delete_card(id)
       when "update-card" then update_card(id)
-      when "create-list" then create_list(board)
-      when "update-list" then update_list(id, board)
-      when "delete-list" then delete_list(id, board)  
       when "back" then break
       else puts "Invalid action"
       end
     end
   end
+
+  def print_table(list:, title:, headings:)
+    table = Terminal::Table.new
+    table.title = title
+    table.headings = headings
+    table.rows = list.map(&:details)
+    puts table
+  end
+
+  def menu(options_line1, options_line2 = nil, exit_back)
+    puts options_line1.join(" | ")
+    puts options_line2.join(" | ") unless options_line2.nil?
+    puts exit_back
+    print "> "
+    action, id = gets.chomp.split
+    if !id.nil? && id.match(/^\d+$/)
+      [action, id.to_i]
+    else
+      [action, id]
+    end
+  end
+
+ # ------------ Board methods ------------
 
   def board_form
     print "Name: "
@@ -77,53 +91,44 @@ class ClinBoards
     description = gets.chomp
     { name: name, description: description }
   end
- # ------------ Board methods ------------
 
- def board_form
-  print "Name: "
-  name = gets.chomp
-  print "Description: "
-  description = gets.chomp
-  { name: name, description: description }
-end
+  def create_board
+    board_data = board_form
+    new_board = Board.new(board_data)
+    @store.add_board(new_board)
+  end
 
-def create_board
-  board_data = board_form
-  new_board = Board.new(board_data)
-  @store.add_board(new_board)
-end
+  def update_board(id)
+    new_data = board_form
+    @store.update_board(id, new_data)
+  end
 
-def update_board(id)
-  new_data = board_form
-  @store.update_board(id, new_data)
-end
+  def delete_board(id)
+    @store.delete_board(id)
+  end
 
-def delete_board(id)
-  @store.delete_board(id)
-end
+  # ------------ List methods ------------
 
-# ------------ List methods ------------
+  def list_form
+    print "Name: "
+    name = gets.chomp
+    { name: name }
+  end
 
-def list_form
-  print "Name: "
-  name = gets.chomp
-  { name: name }
-end
+  def create_list(board)
+    list_data = list_form
+    new_list = List.new(list_data)
+    @store.create_list(new_list, board)
+  end
 
-def create_list(board)
-  list_data = list_form
-  new_list = List.new(list_data)
-  @store.create_list(new_list, board)
-end
+  def update_list(name, board)
+    new_data = list_form
+    @store.update_list(name, new_data, board)
+  end
 
-def update_list(name, board)
-  new_data = list_form
-  @store.update_list(name, new_data, board)
-end
-
-def delete_list(name, board)
-  @store.delete_list(name, board)
-end
+  def delete_list(name, board)
+    @store.delete_list(name, board)
+  end
 
 #-------------------------------cards -----------------------------------------------
   def create_card
@@ -213,7 +218,6 @@ end
 
   #------------------------ Fin Checklist ------------------------------------------------
 
-  private
   def get_data_card
     info = ["Title:", "Members:", "Labels:", "Due Date:"]
     datos = []
@@ -222,32 +226,6 @@ end
       datos.push(gets.chomp)
     end
     {id: nil, title: datos[0], labels: [datos[2]], due_date: datos[3], checklist: [], members: datos[1].split}
-  end
-  
-  def print_table(list:, title:, headings:)
-    table = Terminal::Table.new
-    table.title = title
-    table.headings = headings
-    table.rows = list.map(&:details)
-    # table.rows = list
-    puts table
-  end
-
-
-  def menu(options_line1, options_line2 = nil, exit_back)
-    puts options_line1.join(" | ")
-    puts options_line2.join(" | ") unless options_line2.nil?
-    puts exit_back
-    print "> "
-    action, id = gets.chomp.split
-    [action, id.to_i]
-    if !id.nil? && id.match(/^\d+$/)
-      [action, id.to_i]
-    else
-      [action, id]
-    end
-    # return [action, id.to_i] if id.match(/^\d+$/)
-    # [action, id]
   end
 end
 
