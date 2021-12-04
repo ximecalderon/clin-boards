@@ -1,31 +1,23 @@
 require_relative "card"
 
 class List
-    attr_reader :cards, :name
-    def initialize(id:, name:, cards:)
-      @id = id
-      @name = name
-      # pp @cards = cards
-      @cards = cards.map{|x| Card.new(x)}
-    end
+  @@id_count_ = 0
+  attr_reader :cards, :name
+  def initialize(id: nil , name:, cards:[])
+    id.nil? ? @id = @@id_count_.next : @id = id 
+    @@id_count_ = @id
+    @name = name
+    # pp @cards = cards
+    # cards.empty? ? @cards = Cards.new({}) : @cards = cards.map{|x| Card.new(x)}
+    @cards = cards.map{|x| Card.new(x)}
+  end
 
- 
+  def update(name:)
+    @name = name unless name.empty?
+  end
 
-
-    def details
-        
-
-
-    end
-  
-  
-    def to_json(_generator)
-        { id: @id, name: @name, cards: @cards }.to_json
-    end
-  
-    
-  # private
-  
- 
+  def to_json(_generator)
+      { id: @id, name: @name, cards: @cards }.to_json
+  end
   
   end
