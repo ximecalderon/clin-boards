@@ -2,16 +2,16 @@
 
 class Card
 
-    @@id_count = 0
+    @@id_count_ = 0
     attr_reader :title, :checklist, :id
     def initialize (id:, title:,  labels:[], due_date:, checklist:[{}], members:[])
-     @id = id || @@id_count.next
-     @@id_count = @id
-     @labels = labels
-     @due_date = due_date
-     @checklist = checklist
-     @title = title
-     @members = members
+      id.nil? ? @id = @@id_count_.next : @id = id 
+      @@id_count_ = @id
+      @labels = labels
+      @due_date = due_date
+      @checklist = checklist
+      @title = title
+      @members = members
 
     end
 

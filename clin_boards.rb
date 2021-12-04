@@ -75,47 +75,68 @@ class ClinBoards
     container.push(new_card)
     @store.save
   end
-
+  
+  #------------------  Checklist   -----------------------------
   def checklist_id(id_card)
     @container_card = @board.lists.map{|x| (x.cards).find{|y| y.id == id_card}}.reject(&:nil?)[0]
-    puts "#{'-'*40}"
-    puts "nombre de qué?"
+    panel_checklist
+
+    accion = ""
+    until accion == "exit"
+      accion, index = menu(["Board options: add", "toggle INDEX", "delete INDEX"])
+      puts accion
+      case accion
+      when "add" then add_checklist
+      when "toggle" then toggle_checklist(index)
+      when "delete" then delete_checklist(index)
+      else puts "accion invalid"
+      end
+    end
+  end
+
+  def add_checklist
+    print "Title:"
+    title = gets.chomp
+    @container_card.checklist.push({title: title, completed: false})
+    @store.save
+    panel_checklist
+  end
+  
+  def toggle_checklist(index)
+    @container_card.checklist.map.with_index{|x, i| x[:completed] = !x[:completed]  if (i + 1) == index}
+    @store.save
+    panel_checklist
+  end
+
+  def delete_checklist(index)
+    @container_card.checklist.reject!.with_index{|_x, i| i + 1 == index}
+    @store.save
+    panel_checklist
+  end
+
+  def panel_checklist
+    puts "#{'-' * 40}"
     puts @container_card.title
     @container_card.checklist.map.with_index do |x, i|
       x[:completed] ? (a = "x") : (a = " ")
       puts "[#{a}] #{i+1}. #{x[:title]}"
     end
     puts "#{'-'*40}"
-
-    accion = ""
-    until accion == "exit"
-    accion, index = menu(["Board options: add", "toggle INDEX", "delete INDEX"])
-    #   case accion
-    #   when "add" when add_checklist
-    #   when "togle" when toggle_checklist(index)
-    #   when "delete" when delete_checklist(index)
-    #   else puts "accion invalid"
-    #   end
-    end
   end
 
-  # def add_checklist
-  #  print "Title:"
-  #  title 
-  # end
+  #------------------------ Fin Checklist ------------------------------------------------
 
+  private
   def get_data_card
-    print "Title:" 
-    title = gets.chomp
-    print "Members:"
-    members = gets.chomp
-    print "Labels:"
-    labels = gets.chomp
-    print "Due Date:"
-    due_date = gets.chomp
-    {id: nil, title: title, labels: [labels], due_date: due_date, checklist: [], members: members.split}
+    info = ["Title:", "Members:", "Labels:", "Due Date:"]
+    datos = []
+    4.times do |index|
+      print info[index]
+      datos.push(gets.chomp)
+    end
+    {id: nil, title: datos[0], labels: [datos[2]], due_date: datos[3], checklist: [], members: datos[1].split}
   end
-
+  
   def print_table(list:, title:, headings:)
     table = Terminal::Table.new
     table.title = title
@@ -135,7 +156,7 @@ class ClinBoards
 
   def menu2(options)
     puts options
-    puts "exit"
+    puts "back"
     print "> "
     action, id = gets.chomp.split
     [action, id.to_i]
