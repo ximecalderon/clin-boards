@@ -35,7 +35,8 @@ class ClinBoards
 
   def show_list(id)
     @board = @store.find_board(id)
-
+    @name_list = []
+    @board.lists.each{|list| @name_list.push(list.name)}
     action = ""
     until action == "back"
       @board.lists.each do |list|
@@ -131,11 +132,20 @@ class ClinBoards
   end
 
 #-------------------------------cards -----------------------------------------------
-  def create_card
+  def print_name_list
     print "Select a list:"
-    puts "Todo | In Progress | Code Review | Done"
-    select_list = gets.chomp
-    container = @board.lists.find{|x| x.name == "#{select_list}"}.cards
+    input = ""
+    @name_list.each{|list| print "|  #{list}  "}
+    puts ""
+    until @name_list.include? input
+      input = gets.chomp
+    end
+    input
+  end
+
+  def create_card
+    name_list = print_name_list
+    container = @board.lists.find{|x| x.name == name_list }.cards
     new_card = Card.new(get_data_card)
     container.push(new_card)
     @store.save
@@ -147,24 +157,23 @@ class ClinBoards
   end
 
   def update_card(id_card)
-    print "Select a list:"
-    puts "Todo | In Progress | Code Review | Done"
-    select_list = gets.chomp
-    container = @board.lists.find{|x| x.name == "#{select_list}"}.cards
-    # categoria = ""
-    # @board.lists.each {|x| (x.cards).find{|y| categoria = y if y.id == id_card}}
-  
-    card = @board.lists.map{|x| (x.cards).find{|y| y.id == id_card}}.reject(&:nil?)[0]
-    # pp "---------------------------------------"
-    # pp categoria = x
-    # pp "--------------------------------------------"
+    list_name = print_name_list
+    list_container = @board.lists.find { |list| list.cards.any? { |card| card.id == id_card } }
+    # list_container = @board.lists.find {|list| list if ((list.cards).each{|card| card.id == id_card}).any?} #objeto list que contiene el card a modificar
+    card = @board.lists.map{|list| (list.cards).find{|card| card.id == id_card}}.reject(&:nil?)[0] #card que quiero modificar
     update_data = get_data_card
     card.title = update_data[:title] unless update_data[:title].empty?
     card.members = update_data[:members] unless update_data[:members].empty?
     card.labels = update_data[:labels] unless update_data[:labels].empty?
     card.due_date = update_data[:due_date] unless update_data[:due_date].empty?
-    @board.lists.map{|x| (x.cards).reject!{|y| y.id == id_card}}.reject(&:nil?)[0]
-    container.push(card)  
+
+    if list_name != list_container.name
+      container = @board.lists.find{|list| list.name == list_name}.cards #contenedor card destino
+      @board.lists.map{|x| (x.cards).reject!{|y| y.id == id_card}}.reject(&:nil?)[0] #elimina el objeto del contenedor destino
+      container.push(card)
+    end  
+
+    @store.save
   end
   
   #------------------  Checklist   -----------------------------

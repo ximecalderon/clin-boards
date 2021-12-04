@@ -1,1 +1,511 @@
-[{"id":1,"name":"Extended - CLIn Boards","description":"Task management for the last extended","lists":[{"id":1,"name":"Todo","cards":[{"id":1,"title":"Check terminal-table gem","due_date":"2020-11-19","labels":["investigate"],"checklist":[{"title":"Add gem to gemfile","completed":true},{"title":"Make an example and share with the team","completed":false},{"title":"Ask if this feature is mandatory","completed":false}],"members":["Diego","Deyvi","Wences"]},{"id":2,"title":"Create Manager class","due_date":"2020-11-20","labels":["Coding"],"checklist":[],"members":[]},{"id":3,"title":"Create JSON store","due_date":"2020-11-20","labels":["Coding"],"checklist":[],"members":[]},{"id":9,"title":"Esto es una prueba","due_date":"2021-12-12","labels":["programming"],"checklist":[],"members":["katy,","ruben"]},{"id":9,"title":"prueba","due_date":"20201","labels":["psa"],"checklist":[],"members":["ruben"]}]},{"id":2,"name":"In Progress","cards":[{"id":4,"title":"Create List class","due_date":"2020-11-19","labels":["coding","challenge"],"checklist":[{"title":"Define initialize method","completed":true},{"title":"Add public methods","completed":true},{"title":"Share with the team for feedback","completed":false}],"members":["Deyvi"]},{"id":5,"title":"Create Card class","due_date":"2020-11-19","labels":["coding"],"checklist":[{"title":"Define initialize method","completed":true},{"title":"Add public methods","completed":false},{"title":"Check dependency with list class","completed":false},{"title":"Share with the team for feedback","completed":false}],"members":["Wences"]},{"id":9,"title":"Schedule standup meeting","due_date":"2020-11-20","labels":["meetigns","important"],"checklist":[],"members":["Diego","Wences","Deyvi"]},{"id":9,"title":"HOla mundo","due_date":"2020","labels":["kfsjl"],"checklist":[],"members":["jofsl"]},{"id":9,"title":"hola","due_date":"hola","labels":["holi"],"checklist":[],"members":["sfjklfs"]},{"id":9,"title":"pruebita","due_date":"2021","labels":["nnnn"],"checklist":[],"members":["nn"]}]},{"id":3,"name":"Code Review","cards":[{"id":6,"title":"Create Board class","due_date":"2020-11-19","labels":["coding","challenge"],"checklist":[{"title":"Define initialize method","completed":true},{"title":"Add public methods","completed":true},{"title":"Share with the team for feedback","completed":true}],"members":["Diego"]}]},{"id":4,"name":"Done","cards":[{"id":8,"title":"Divide tasks","due_date":"2020-11-19","labels":["prep"],"checklist":[],"members":["Diego","Wences","Deyvi"]},{"id":9,"title":"probacion","due_date":"dfjk","labels":["fskl"],"checklist":[],"members":["fdjskf"]}]}]},{"id":2,"name":"Extended - week 3 ruby","description":"Pokemon ruby","lists":[{"id":5,"name":"todo","cards":[{"id":10,"title":"assignament","due_date":"2021","labels":["ayuda"],"checklist":[{"title":"luchito tomar es malo","completed":true}],"members":["elvis"]}]}]},{"id":3,"name":"Extende - week 2","description":"Calencli","lists":[]}]
+[
+    {
+        "id": 1,
+        "name": "Extended - CLIn Boards",
+        "description": "Task management for the last extended",
+        "lists": [
+            {
+                "id": 1,
+                "name": "Todo",
+                "cards": [
+                    {
+                        "id": 1,
+                        "title": "Check terminal-table gem",
+                        "due_date": "2020-11-19",
+                        "labels": [
+                            "investigate"
+                        ],
+                        "checklist": [
+                            {
+                                "title": "Add gem to gemfile",
+                                "completed": true
+                            },
+                            {
+                                "title": "Make an example and share with the team",
+                                "completed": false
+                            },
+                            {
+                                "title": "Ask if this feature is mandatory",
+                                "completed": false
+                            }
+                        ],
+                        "members": [
+                            "Diego",
+                            "Deyvi",
+                            "Wences"
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "title": "Create Manager class",
+                        "due_date": "2020-11-20",
+                        "labels": [
+                            "Coding"
+                        ],
+                        "checklist": [],
+                        "members": []
+                    },
+                    {
+                        "id": 3,
+                        "title": "Create JSON store",
+                        "due_date": "2020-11-20",
+                        "labels": [
+                            "Coding"
+                        ],
+                        "checklist": [],
+                        "members": []
+                    },
+                    {
+                        "id": 9,
+                        "title": "Esto es una prueba",
+                        "due_date": "2021-12-12",
+                        "labels": [
+                            "programming"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "katy,",
+                            "ruben"
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "title": "prueba",
+                        "due_date": "20201",
+                        "labels": [
+                            "psa"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "ruben"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "In Progress",
+                "cards": [
+                    {
+                        "id": 5,
+                        "title": "hola luchito",
+                        "due_date": "2020-11-19",
+                        "labels": [
+                            ""
+                        ],
+                        "checklist": [
+                            {
+                                "title": "Define initialize method",
+                                "completed": true
+                            },
+                            {
+                                "title": "Add public methods",
+                                "completed": false
+                            },
+                            {
+                                "title": "Check dependency with list class",
+                                "completed": false
+                            },
+                            {
+                                "title": "Share with the team for feedback",
+                                "completed": false
+                            }
+                        ],
+                        "members": [
+                            "Wences"
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "title": "Schedule standup meeting",
+                        "due_date": "2020-11-20",
+                        "labels": [
+                            "meetigns",
+                            "important"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "Diego",
+                            "Wences",
+                            "Deyvi"
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "title": "HOla mundo",
+                        "due_date": "2020",
+                        "labels": [
+                            "kfsjl"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "jofsl"
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "title": "hola",
+                        "due_date": "hola",
+                        "labels": [
+                            "holi"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "sfjklfs"
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "title": "pruebita",
+                        "due_date": "2021",
+                        "labels": [
+                            "nnnn"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "nn"
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "title": "Create List class",
+                        "due_date": "2020-11-19",
+                        "labels": [
+                            ""
+                        ],
+                        "checklist": [
+                            {
+                                "title": "Define initialize method",
+                                "completed": true
+                            },
+                            {
+                                "title": "Add public methods",
+                                "completed": true
+                            },
+                            {
+                                "title": "Share with the team for feedback",
+                                "completed": false
+                            }
+                        ],
+                        "members": [
+                            "Deyvi"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Code Review",
+                "cards": [
+                    {
+                        "id": 6,
+                        "title": "Create Board class",
+                        "due_date": "2020-11-19",
+                        "labels": [
+                            "coding",
+                            "challenge"
+                        ],
+                        "checklist": [
+                            {
+                                "title": "Define initialize method",
+                                "completed": true
+                            },
+                            {
+                                "title": "Add public methods",
+                                "completed": true
+                            },
+                            {
+                                "title": "Share with the team for feedback",
+                                "completed": true
+                            }
+                        ],
+                        "members": [
+                            "Diego"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "name": "Done",
+                "cards": [
+                    {
+                        "id": 8,
+                        "title": "Divide tasks",
+                        "due_date": "2020-11-19",
+                        "labels": [
+                            "prep"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "Diego",
+                            "Wences",
+                            "Deyvi"
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "title": "probacion",
+                        "due_date": "dfjk",
+                        "labels": [
+                            "fskl"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "fdjskf"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Extended - week 3 ruby",
+        "description": "Pokemon ruby",
+        "lists": [
+            {
+                "id": 5,
+                "name": "todo",
+                "cards": [
+                    {
+                        "id": 10,
+                        "title": "assignament",
+                        "due_date": "2021",
+                        "labels": [
+                            "ayuda"
+                        ],
+                        "checklist": [
+                            {
+                                "title": "luchito tomar es malo",
+                                "completed": true
+                            }
+                        ],
+                        "members": [
+                            "elvis"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Extende - week 2",
+        "description": "Calencli",
+        "lists": []
+    },
+    {
+        "id": 4,
+        "name": "Extended -week 3",
+        "description": "description extended-3",
+        "lists": [
+            {
+                "id": 6,
+                "name": "Desayuno",
+                "cards": [
+                    {
+                        "id": 11,
+                        "title": "Café y pan",
+                        "due_date": "2021-12-10",
+                        "labels": [
+                            "desayuno para dos"
+                        ],
+                        "checklist": [
+                            {
+                                "title": "comprar el pan",
+                                "completed": false
+                            },
+                            {
+                                "title": "comprar café",
+                                "completed": false
+                            }
+                        ],
+                        "members": [
+                            "ruben,",
+                            "sandro"
+                        ]
+                    },
+                    {
+                        "id": 13,
+                        "title": "lavar la ropa",
+                        "due_date": "2021-12-12",
+                        "labels": [
+                            "limpieza"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "katy"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "name": "Almuerzo",
+                "cards": []
+            },
+            {
+                "id": 8,
+                "name": "Cena",
+                "cards": [
+                    {
+                        "id": 12,
+                        "title": "cocinar",
+                        "due_date": "",
+                        "labels": [
+                            ""
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "ruben"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "name": "Lonche",
+                "cards": []
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Proyecto",
+        "description": "descripcion del proyecto",
+        "lists": [
+            {
+                "id": 10,
+                "name": "Boceto",
+                "cards": [
+                    {
+                        "id": 14,
+                        "title": "dfjskflj",
+                        "due_date": "dflk",
+                        "labels": [
+                            "fkjsf"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "dfsjl"
+                        ]
+                    },
+                    {
+                        "id": 15,
+                        "title": "hola mundo",
+                        "due_date": "28439",
+                        "labels": [
+                            ""
+                        ],
+                        "checklist": [],
+                        "members": []
+                    },
+                    {
+                        "id": 17,
+                        "title": "holita",
+                        "due_date": "",
+                        "labels": [
+                            "fskj"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "kfsk"
+                        ]
+                    },
+                    {
+                        "id": 17,
+                        "title": "chachapoyas",
+                        "due_date": "dfks",
+                        "labels": [
+                            ""
+                        ],
+                        "checklist": [],
+                        "members": []
+                    },
+                    {
+                        "id": 17,
+                        "title": "luchito",
+                        "due_date": "",
+                        "labels": [
+                            ""
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "luchito2"
+                        ]
+                    },
+                    {
+                        "id": 18,
+                        "title": "test 1000000",
+                        "due_date": "2021-21-12",
+                        "labels": [
+                            ""
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "luchito,",
+                            "ruben,",
+                            "katy,",
+                            "ximena"
+                        ]
+                    },
+                    {
+                        "id": 19,
+                        "title": "prueba",
+                        "due_date": "nn",
+                        "labels": [
+                            "nn"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "nn"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "name": "Armado",
+                "cards": [
+                    {
+                        "id": 13,
+                        "title": "vista previa",
+                        "due_date": "2021-12-15",
+                        "labels": [
+                            ""
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "ruben"
+                        ]
+                    },
+                    {
+                        "id": 14,
+                        "title": "kfsjklfa",
+                        "due_date": "343",
+                        "labels": [
+                            "2323"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "fsklfs"
+                        ]
+                    },
+                    {
+                        "id": 16,
+                        "title": "hola",
+                        "due_date": "",
+                        "labels": [
+                            "skf"
+                        ],
+                        "checklist": [],
+                        "members": [
+                            "fjsk"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
