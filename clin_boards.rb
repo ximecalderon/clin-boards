@@ -20,10 +20,10 @@ class ClinBoards
       action, id = menu(["Board options: create", "show ID", "update ID", "delete ID"], nil, "exit")
 
       case action
-      when "create" then puts create_board
-      when "update" then puts "update action"
-      when "show" then puts show_list(id)
-      when "delete" then puts "delete action"
+      when "create" then create_board
+      when "update" then update_board(id)
+      when "show" then show_list(id)
+      when "delete" then delete_board(id)
       when "exit" then puts "Goodbye"
       else
         puts "Invalid action"
@@ -135,7 +135,7 @@ class ClinBoards
     print "Select a list:"
     puts "Todo | In Progress | Code Review | Done"
     select_list = gets.chomp
-    container = @object_board_id.lists.find{|x| x.name == "#{select_list}"}.cards
+    container = @board.lists.find{|x| x.name == "#{select_list}"}.cards
     new_card = Card.new(get_data_card)
     container.push(new_card)
     @store.save
@@ -169,7 +169,7 @@ class ClinBoards
   
   #------------------  Checklist   -----------------------------
   def checklist_id(id_card)
-    @container_card = @object_board_id.lists.map{|x| (x.cards).find{|y| y.id == id_card}}.reject(&:nil?)[0]
+    @container_card = @board.lists.map{|x| (x.cards).find{|y| y.id == id_card}}.reject(&:nil?)[0]
     panel_checklist
 
     accion = ""
