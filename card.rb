@@ -1,12 +1,12 @@
 # require "store"
 
 class Card
-
-    @@id_count_ = 0
+    
     attr_accessor :id, :title, :labels, :due_date, :checklist, :members  
+    @@id_count_card = 0
     def initialize (id:, title:,  labels:[], due_date:, checklist:[{}], members:[])
-      id.nil? ? @id = @@id_count_.next : @id = id 
-      @@id_count_ = @id
+      id.nil? ? @id = @@id_count_card.next : @id = id 
+      @@id_count_card = @id
       @labels = labels
       @due_date = due_date
       @checklist = checklist
@@ -14,8 +14,6 @@ class Card
       @members = members
 
     end
-
-   
 
     def checklist_show
         count = 0
