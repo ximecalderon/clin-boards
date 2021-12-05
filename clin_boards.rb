@@ -2,6 +2,7 @@ require "json"
 require_relative "board.rb"
 require "terminal-table"
 require_relative "store.rb"
+require "colorize"
 
 class ClinBoards
 
@@ -10,9 +11,9 @@ class ClinBoards
   end
 
   def start
-    puts "####################################"
-    puts "#      Welcome to CLIn Boards      #"
-    puts "####################################"
+    puts "####################################".colorize(:color => :light_blue, :background => :pink)
+    puts "#      Welcome to CLIn Boards      #".colorize(:color => :light_blue, :background => :pink)
+    puts "####################################".colorize(:color => :light_blue, :background => :pink)
 
     action = ""
     until action == "exit"
@@ -62,29 +63,10 @@ class ClinBoards
     end
   end
 
-  def print_table(list:, title:, headings:)
-    table = Terminal::Table.new
-    table.title = title
-    table.headings = headings
-    table.rows = list.map(&:details)
-    puts table
-  end
-
-  def menu(options_line1, options_line2 = nil, exit_back)
-    puts options_line1.join(" | ")
-    puts options_line2.join(" | ") unless options_line2.nil?
-    puts exit_back
-    print "> "
-    action, id = gets.chomp.split
-    if !id.nil? && id.match(/^\d+$/)
-      [action, id.to_i]
-    else
-      [action, id]
-    end
-  end
-
- # ------------ Board methods ------------
-
+  
+  
+  # ------------ Board methods ------------
+  
   def board_form
     print "Name: "
     name = gets.chomp
@@ -92,57 +74,57 @@ class ClinBoards
     description = gets.chomp
     { name: name, description: description }
   end
-
+  
   def create_board
     board_data = board_form
     new_board = Board.new(board_data)
     @store.add_board(new_board)
   end
-
+  
   def update_board(id)
     new_data = board_form
     @store.update_board(id, new_data)
   end
-
+  
   def delete_board(id)
     @store.delete_board(id)
   end
-
+  
   # ------------ List methods ------------
-
+  
   def list_form
     print "Name: "
     name = gets.chomp
     { name: name }
   end
-
+  
   def create_list(board)
     list_data = list_form
     new_list = List.new(list_data)
     @store.create_list(new_list, board)
   end
-
+  
   def update_list(name, board)
     new_data = list_form
     @store.update_list(name, new_data, board)
   end
-
+  
   def delete_list(name, board)
     @store.delete_list(name, board)
   end
-
-#-------------------------------cards -----------------------------------------------
+  
+  #-------------------------------cards -----------------------------------------------
   def print_name_list
-    print "Select a list:"
     input = ""
-    @name_list.each{|list| print "|  #{list}  "}
-    puts ""
     until @name_list.include? input
+      print "Select a list:"
+      @name_list.each{|list| print "|  #{list}  "}
+      puts ""
       input = gets.chomp
     end
     input
   end
-
+  
   def create_card
     name_list = print_name_list
     container = @board.lists.find{|x| x.name == name_list }.cards
@@ -150,12 +132,12 @@ class ClinBoards
     container.push(new_card)
     @store.save
   end
-
+  
   def delete_card(id_card)
     @board.lists.map{|x| (x.cards).reject!{|y| y.id == id_card}}.reject(&:nil?)[0]
     @store.save
   end
-
+  
   def update_card(id_card)
     list_name = print_name_list
     list_container = @board.lists.find { |list| list.cards.any? { |card| card.id == id_card } }
@@ -166,13 +148,13 @@ class ClinBoards
     card.members = update_data[:members] unless update_data[:members].empty?
     card.labels = update_data[:labels] unless update_data[:labels].empty?
     card.due_date = update_data[:due_date] unless update_data[:due_date].empty?
-
+    
     if list_name != list_container.name
       container = @board.lists.find{|list| list.name == list_name}.cards #contenedor card destino
       @board.lists.map{|x| (x.cards).reject!{|y| y.id == id_card}}.reject(&:nil?)[0] #elimina el objeto del contenedor destino
       container.push(card)
     end  
-
+    
     @store.save
   end
   
@@ -180,7 +162,7 @@ class ClinBoards
   def checklist_id(id_card)
     @container_card = @board.lists.map{|x| (x.cards).find{|y| y.id == id_card}}.reject(&:nil?)[0]
     panel_checklist
-
+    
     accion = ""
     until accion == "back"
       accion, index = menu(["Board options: add", "toggle INDEX", "delete INDEX"], nil, "back")
@@ -194,7 +176,7 @@ class ClinBoards
       end
     end
   end
-
+  
   def add_checklist
     print "Title:"
     title = gets.chomp
@@ -208,13 +190,13 @@ class ClinBoards
     @store.save
     panel_checklist
   end
-
+  
   def delete_checklist(index)
     @container_card.checklist.reject!.with_index{|_x, i| i + 1 == index}
     @store.save
     panel_checklist
   end
-
+  
   def panel_checklist
     puts "#{'-' * 40}"
     puts @container_card.title
@@ -224,9 +206,30 @@ class ClinBoards
     end
     puts "#{'-'*40}"
   end
-
+  
   #------------------------ Fin Checklist ------------------------------------------------
-
+  def menu(options_line1, options_line2 = nil, exit_back)
+    puts options_line1.join(" | ")
+    puts options_line2.join(" | ") unless options_line2.nil?
+    puts exit_back
+    print "> "
+    action, id = gets.chomp.split 
+    if !id.nil? && id.match(/^\d+$/)
+      [action, id.to_i]
+    else
+      [action, id]
+    end
+  end
+  
+  def print_table(list:, title:, headings:)
+    table = Terminal::Table.new
+    table.title = title
+    table.headings = headings
+    table.rows = (list.map(&:details))
+    table.style = { :border => :unicode_thick_edge }
+    puts table
+  end
+  
   def get_data_card
     info = ["Title:", "Members:", "Labels:", "Due Date:"]
     datos = []

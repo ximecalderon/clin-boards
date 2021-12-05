@@ -54,31 +54,6 @@
                         ],
                         "checklist": [],
                         "members": []
-                    },
-                    {
-                        "id": 9,
-                        "title": "Esto es una prueba",
-                        "due_date": "2021-12-12",
-                        "labels": [
-                            "programming"
-                        ],
-                        "checklist": [],
-                        "members": [
-                            "katy,",
-                            "ruben"
-                        ]
-                    },
-                    {
-                        "id": 9,
-                        "title": "prueba",
-                        "due_date": "20201",
-                        "labels": [
-                            "psa"
-                        ],
-                        "checklist": [],
-                        "members": [
-                            "ruben"
-                        ]
                     }
                 ]
             },
@@ -113,57 +88,6 @@
                         ],
                         "members": [
                             "Wences"
-                        ]
-                    },
-                    {
-                        "id": 9,
-                        "title": "Schedule standup meeting",
-                        "due_date": "2020-11-20",
-                        "labels": [
-                            "meetigns",
-                            "important"
-                        ],
-                        "checklist": [],
-                        "members": [
-                            "Diego",
-                            "Wences",
-                            "Deyvi"
-                        ]
-                    },
-                    {
-                        "id": 9,
-                        "title": "HOla mundo",
-                        "due_date": "2020",
-                        "labels": [
-                            "kfsjl"
-                        ],
-                        "checklist": [],
-                        "members": [
-                            "jofsl"
-                        ]
-                    },
-                    {
-                        "id": 9,
-                        "title": "hola",
-                        "due_date": "hola",
-                        "labels": [
-                            "holi"
-                        ],
-                        "checklist": [],
-                        "members": [
-                            "sfjklfs"
-                        ]
-                    },
-                    {
-                        "id": 9,
-                        "title": "pruebita",
-                        "due_date": "2021",
-                        "labels": [
-                            "nnnn"
-                        ],
-                        "checklist": [],
-                        "members": [
-                            "nn"
                         ]
                     },
                     {
@@ -227,7 +151,7 @@
             },
             {
                 "id": 4,
-                "name": "Done",
+                "name": "Done New",
                 "cards": [
                     {
                         "id": 8,
@@ -241,18 +165,6 @@
                             "Diego",
                             "Wences",
                             "Deyvi"
-                        ]
-                    },
-                    {
-                        "id": 9,
-                        "title": "probacion",
-                        "due_date": "dfjk",
-                        "labels": [
-                            "fskl"
-                        ],
-                        "checklist": [],
-                        "members": [
-                            "fdjskf"
                         ]
                     }
                 ]
