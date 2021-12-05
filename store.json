@@ -1,1 +1,253 @@
-[{"id":1,"name":"Extended - CLIn Boards","description":"Task management for the last extended","lists":[{"id":1,"name":"Todo","cards":[{"id":1,"title":"Check terminal-table gem","due_date":"2020-11-19","labels":["investigate"],"checklist":[{"title":"Add gem to gemfile","completed":true},{"title":"Make an example and share with the team","completed":false},{"title":"Ask if this feature is mandatory","completed":false}],"members":["Diego","Deyvi","Wences"]},{"id":2,"title":"Create Manager class","due_date":"2020-11-20","labels":["Coding"],"checklist":[],"members":[]},{"id":3,"title":"Create JSON store","due_date":"2020-11-20","labels":["Coding"],"checklist":[],"members":[]}]},{"id":2,"name":"In Progress","cards":[{"id":5,"title":"hola luchito","due_date":"2020-11-19","labels":[""],"checklist":[{"title":"Define initialize method","completed":true},{"title":"Add public methods","completed":false},{"title":"Check dependency with list class","completed":false},{"title":"Share with the team for feedback","completed":false}],"members":["Wences"]},{"id":4,"title":"Create List class","due_date":"2020-11-19","labels":[""],"checklist":[{"title":"Define initialize method","completed":true},{"title":"Add public methods","completed":true},{"title":"Share with the team for feedback","completed":false}],"members":["Deyvi"]}]},{"id":3,"name":"Code Review","cards":[{"id":6,"title":"Create Board class","due_date":"2020-11-19","labels":["coding","challenge"],"checklist":[{"title":"Define initialize method","completed":true},{"title":"Add public methods","completed":true},{"title":"Share with the team for feedback","completed":true}],"members":["Diego"]}]},{"id":4,"name":"Done New","cards":[{"id":8,"title":"Divide tasks","due_date":"2020-11-19","labels":["prep"],"checklist":[],"members":["Diego","Wences","Deyvi"]}]}]},{"id":2,"name":"Extended - week 3 ruby","description":"Pokemon ruby","lists":[{"id":5,"name":"todo","cards":[{"id":10,"title":"assignament","due_date":"2021","labels":["ayuda"],"checklist":[{"title":"luchito tomar es malo","completed":true}],"members":["elvis"]}]}]},{"id":3,"name":"Extende - week 2","description":"Calencli","lists":[{"id":12,"name":"prueba 1","cards":[]}]},{"id":4,"name":"Meal","description":"eat, drink","lists":[{"id":6,"name":"Desayuno","cards":[{"id":11,"title":"Café y pan","due_date":"2021-12-10","labels":["desayuno para dos"],"checklist":[{"title":"comprar el pan","completed":false},{"title":"comprar café","completed":false}],"members":["ruben,","sandro"]},{"id":13,"title":"lavar la ropa","due_date":"2021-12-12","labels":["limpieza"],"checklist":[],"members":["katy"]}]},{"id":7,"name":"Almuerzo","cards":[]},{"id":8,"name":"Cena","cards":[{"id":12,"title":"cocinar","due_date":"","labels":[""],"checklist":[],"members":["ruben"]}]},{"id":9,"name":"Lonche","cards":[]}]},{"id":5,"name":"Proyecto","description":"descripcion del proyecto","lists":[{"id":10,"name":"Boceto","cards":[{"id":17,"title":"Estructurar código","due_date":"2021-02-12","labels":["high priority"],"checklist":[{"title":"Crear clases","completed":false},{"title":"Crear métodos","completed":true},{"title":"Crear variables","completed":false},{"title":"definir variables","completed":true}],"members":["katy","luchito","ruben","ximena"]}]},{"id":11,"name":"Armado","cards":[{"id":18,"title":"Programar código","due_date":"2021-04-12","labels":["medium priority"],"checklist":[{"title":"método para boards","completed":true},{"title":"métodos para lists","completed":true},{"title":"métodos para cards","completed":true}],"members":["ximera","ruben","luchito","katy"]}]}]}]
+[
+  {
+    "id": 1,
+    "name": "Extended - CLIn Boards",
+    "description": "Task management for the last extended",
+    "lists": [
+      {
+        "id": 1,
+        "name": "Todo",
+        "cards": [
+          {
+            "id": 1,
+            "title": "Check terminal-table gem",
+            "due_date": "2020-11-19",
+            "labels": ["investigate"],
+            "checklist": [
+              { "title": "Add gem to gemfile", "completed": true },
+              {
+                "title": "Make an example and share with the team",
+                "completed": false
+              },
+              {
+                "title": "Ask if this feature is mandatory",
+                "completed": false
+              }
+            ],
+            "members": ["Diego", "Deyvi", "Wences"]
+          },
+          {
+            "id": 2,
+            "title": "Create Manager class",
+            "due_date": "2020-11-20",
+            "labels": ["Coding"],
+            "checklist": [],
+            "members": []
+          },
+          {
+            "id": 3,
+            "title": "Create JSON store",
+            "due_date": "2020-11-20",
+            "labels": ["Coding"],
+            "checklist": [],
+            "members": []
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "In Progress",
+        "cards": [
+          {
+            "id": 5,
+            "title": "hola luchito",
+            "due_date": "2020-11-19",
+            "labels": [""],
+            "checklist": [
+              { "title": "Define initialize method", "completed": true },
+              { "title": "Add public methods", "completed": false },
+              {
+                "title": "Check dependency with list class",
+                "completed": false
+              },
+              {
+                "title": "Share with the team for feedback",
+                "completed": false
+              }
+            ],
+            "members": ["Wences"]
+          },
+          {
+            "id": 4,
+            "title": "Create List class",
+            "due_date": "2020-11-19",
+            "labels": [""],
+            "checklist": [
+              { "title": "Define initialize method", "completed": true },
+              { "title": "Add public methods", "completed": true },
+              {
+                "title": "Share with the team for feedback",
+                "completed": false
+              }
+            ],
+            "members": ["Deyvi"]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Code Review",
+        "cards": [
+          {
+            "id": 6,
+            "title": "Create Board class",
+            "due_date": "2020-11-19",
+            "labels": ["coding", "challenge"],
+            "checklist": [
+              { "title": "Define initialize method", "completed": true },
+              { "title": "Add public methods", "completed": true },
+              {
+                "title": "Lograr que luchito deje de tomar",
+                "completed": false
+              }
+            ],
+            "members": ["Diego"]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Done New",
+        "cards": [
+          {
+            "id": 8,
+            "title": "Divide tasks",
+            "due_date": "2020-11-19",
+            "labels": ["prep"],
+            "checklist": [],
+            "members": ["Diego", "Wences", "Deyvi"]
+          },
+          {
+            "id": 19,
+            "title": "Test Card",
+            "due_date": "",
+            "labels": ["hola"],
+            "checklist": [],
+            "members": ["Ximena"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Extended - week 3 ruby",
+    "description": "Pokemon ruby",
+    "lists": [
+      {
+        "id": 5,
+        "name": "todo",
+        "cards": [
+          {
+            "id": 10,
+            "title": "assignament",
+            "due_date": "2021",
+            "labels": ["ayuda"],
+            "checklist": [
+              { "title": "luchito tomar es malo", "completed": true }
+            ],
+            "members": ["elvis"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Extende - week 2",
+    "description": "Calencli",
+    "lists": [{ "id": 12, "name": "prueba 1", "cards": [] }]
+  },
+  {
+    "id": 4,
+    "name": "Meal",
+    "description": "eat, drink",
+    "lists": [
+      {
+        "id": 6,
+        "name": "Desayuno",
+        "cards": [
+          {
+            "id": 11,
+            "title": "Café y pan",
+            "due_date": "2021-12-10",
+            "labels": ["desayuno para dos"],
+            "checklist": [
+              { "title": "comprar el pan", "completed": false },
+              { "title": "comprar café", "completed": false }
+            ],
+            "members": ["ruben,", "sandro"]
+          },
+          {
+            "id": 13,
+            "title": "lavar la ropa",
+            "due_date": "2021-12-12",
+            "labels": ["limpieza"],
+            "checklist": [],
+            "members": ["katy"]
+          }
+        ]
+      },
+      { "id": 7, "name": "Almuerzo", "cards": [] },
+      {
+        "id": 8,
+        "name": "Cena",
+        "cards": [
+          {
+            "id": 12,
+            "title": "cocinar",
+            "due_date": "",
+            "labels": [""],
+            "checklist": [],
+            "members": ["ruben"]
+          }
+        ]
+      },
+      { "id": 9, "name": "Lonche", "cards": [] }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Proyecto",
+    "description": "descripcion del proyecto",
+    "lists": [
+      {
+        "id": 10,
+        "name": "Boceto",
+        "cards": [
+          {
+            "id": 17,
+            "title": "Estructurar código",
+            "due_date": "2021-02-12",
+            "labels": ["high priority"],
+            "checklist": [
+              { "title": "Crear clases", "completed": false },
+              { "title": "Crear métodos", "completed": true },
+              { "title": "Crear variables", "completed": false },
+              { "title": "definir variables", "completed": true }
+            ],
+            "members": ["katy", "luchito", "ruben", "ximena"]
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "name": "Armado",
+        "cards": [
+          {
+            "id": 18,
+            "title": "Programar código",
+            "due_date": "2021-04-12",
+            "labels": ["medium priority"],
+            "checklist": [
+              { "title": "método para boards", "completed": true },
+              { "title": "métodos para lists", "completed": true },
+              { "title": "métodos para cards", "completed": true }
+            ],
+            "members": ["ximera", "ruben", "luchito", "katy"]
+          }
+        ]
+      }
+    ]
+  }
+]

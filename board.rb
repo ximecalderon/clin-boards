@@ -1,17 +1,18 @@
 require "json"
-require_relative "./list.rb"
+require_relative "./list"
 
 class Board
   attr_reader :id, :lists
+
   @@id_count = 0
   def initialize(name:, description:, id: nil, lists: [])
     @id = id || @@id_count.next
     @@id_count = @id
     @name = name
     @description = description
-    @lists = lists.map{|list| List.new(list)}
+    @lists = lists.map { |list| List.new(list) }
   end
-  
+
   def details
     [@id, @name, @description, list_details]
   end
@@ -33,6 +34,3 @@ class Board
     lists.join(", ")
   end
 end
-
-# boar = Board.new
-# pp boar.data
